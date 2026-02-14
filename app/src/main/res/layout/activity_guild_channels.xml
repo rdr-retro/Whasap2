@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C8C8C8"
+    android:orientation="vertical">
+
+    <!-- Header with glassmorphic style -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/header_gradient"
+        android:orientation="horizontal"
+        android:padding="14dp"
+        android:gravity="center_vertical">
+
+        <!-- Back Button -->
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:tint="@android:color/white"
+            android:layout_marginEnd="12dp" />
+
+        <TextView
+            android:id="@+id/guild_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Server Name"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:ellipsize="end" />
+
+        <!-- Search Button -->
+        <ImageView
+            android:id="@+id/btn_search"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@android:drawable/ic_menu_search"
+            android:tint="@android:color/white"
+            android:layout_marginEnd="12dp"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="Search" />
+
+        <!-- Edit/Reorder Button -->
+        <ImageView
+            android:id="@+id/btn_edit_channels"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@android:drawable/ic_menu_edit"
+            android:tint="@android:color/white"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="Reorder" />
+    </LinearLayout>
+
+    <!-- Search Bar (hidden by default) -->
+    <LinearLayout
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#E0E0E0"
+        android:padding="8dp"
+        android:gravity="center_vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@android:drawable/ic_menu_search"
+            android:tint="#666666"
+            android:layout_marginEnd="8dp" />
+
+        <EditText
+            android:id="@+id/search_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:hint="Buscar canal..."
+            android:padding="8dp"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/channels_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="6dp"
+        android:clipToPadding="false" />
+
+</LinearLayout>

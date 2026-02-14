@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:paddingStart="@dimen/chat_padding_horizontal"
+    android:paddingTop="@dimen/chat_padding_vertical"
+    android:paddingEnd="@dimen/chat_padding_horizontal"
+    android:paddingBottom="@dimen/chat_padding_vertical">
+
+    <ImageView
+        android:id="@+id/chat_avatar"
+        android:layout_width="@dimen/chat_avatar_size"
+        android:layout_height="@dimen/chat_avatar_size"
+        android:src="@drawable/icondroid"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/chat_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/chat_text_margin_start"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/chat_name_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/chat_message"
+        app:layout_constraintEnd_toStartOf="@+id/chat_time"
+        app:layout_constraintStart_toEndOf="@+id/chat_avatar"
+        app:layout_constraintTop_toTopOf="@+id/chat_avatar"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Jack Whitman" />
+
+    <TextView
+        android:id="@+id/chat_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/chat_text_margin_start"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#666666"
+        android:textSize="@dimen/chat_message_size"
+        app:layout_constraintBottom_toBottomOf="@+id/chat_avatar"
+        app:layout_constraintEnd_toStartOf="@+id/chat_unread_badge"
+        app:layout_constraintStart_toEndOf="@+id/chat_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/chat_name"
+        tools:text="I will see you guys there" />
+
+    <TextView
+        android:id="@+id/chat_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#999999"
+        android:textSize="@dimen/chat_time_size"
+        app:layout_constraintBaseline_toBaselineOf="@+id/chat_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="12:52am" />
+
+    <TextView
+        android:id="@+id/chat_unread_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#666666"
+        android:paddingStart="8dp"
+        android:paddingTop="2dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="2dp"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/chat_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="2"
+        tools:visibility="visible" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/chat_name"
+        app:layout_constraintTop_toBottomOf="@+id/chat_avatar"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/drag_handle"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="4dp"
+        android:contentDescription="Drag to reorder"
+        android:visibility="gone"
+        android:src="@android:drawable/ic_menu_sort_by_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#999999" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

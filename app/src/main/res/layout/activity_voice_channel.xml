@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D0D0D0"
+    android:orientation="vertical">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/header_gradient"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/btn_back_voice"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:tint="@android:color/white"
+            android:layout_marginEnd="16dp" />
+
+        <TextView
+            android:id="@+id/voice_channel_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔊 Canal de voz"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Connected count -->
+    <TextView
+        android:id="@+id/connected_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0 conectados"
+        android:textColor="#558B2F"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:padding="12dp"
+        android:background="#E8E8E8" />
+
+    <!-- Members list -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/members_list_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp" />
+    </ScrollView>
+
+    <!-- Join Button -->
+    <TextView
+        android:id="@+id/btn_join_voice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🎤 Unirse al canal de voz"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="#558B2F"
+        android:padding="16dp"
+        android:layout_margin="12dp" />
+
+</LinearLayout>
