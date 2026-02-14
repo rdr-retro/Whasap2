@@ -1,42 +1,101 @@
 <resources>
     <string name="app_name">Whasap2</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Ajustes</string>
 
+    <string name="intro_welcome_title">BIENVENIDO</string>
+    <string name="intro_app_name">Whasap2</string>
+    <string name="intro_description">Whasap2 conecta tu cuenta de Discord para ver chats, canales y notificaciones en una interfaz estilo mensajeria.</string>
+    <string name="intro_language_label">Idioma</string>
+    <string name="intro_continue">Continuar</string>
 
-    <string name="lorem_ipsum">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
-        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
-        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
-        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
-        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
-        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
-        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
-        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
-        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
-        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
-        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
-        bibendum, vel congue leo egestas.\n\n
-        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
-        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
-        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
-        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
-        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
-        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
-        est.\n\n
-        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
-        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
-        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
-        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
-        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
-        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
-        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
-        convallis.\n\n
-        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
-        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
-        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
-        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
-        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
-        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
-        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
-    </string>
+    <string name="lang_spanish">Espanol</string>
+    <string name="lang_english">Ingles</string>
+    <string name="lang_french">Frances</string>
+    <string name="lang_german">Aleman</string>
+    <string name="lang_italian">Italiano</string>
+    <string name="lang_portuguese">Portugues</string>
+
+    <string name="welcome_title">Conectar Discord</string>
+    <string name="welcome_subtitle_access">Acceso mediante token de usuario</string>
+    <string name="welcome_disclaimer">Descargo de responsabilidad: esta app no es oficial y la usas bajo tu propia responsabilidad. Introduce solo tu token personal, no lo compartas con terceros y revocalo de inmediato si sospechas una filtracion. El desarrollador no se hace responsable de perdida de datos, accesos no autorizados, interrupciones del servicio ni de cualquier dano derivado del uso de esta aplicacion o de cambios en la API de Discord.</string>
+    <string name="welcome_token_label">Token de Discord</string>
+    <string name="welcome_token_hint">Pega aqui tu token</string>
+    <string name="welcome_connect">Conectar</string>
+    <string name="welcome_help">Ayuda</string>
+    <string name="welcome_error_preview">Error de conexion: -</string>
+    <string name="welcome_version">Version 1.0</string>
+
+    <string name="dialog_token_help_title">Como obtener el token</string>
+    <string name="dialog_token_help_message">1. Abre Discord en el navegador e inicia sesion.\n2. Pulsa F12 para abrir herramientas de desarrollador.\n3. Ve a la pestana Application o Storage.\n4. En Local Storage, abre https://discord.com.\n5. Busca la clave token y copia su valor.\n6. Pegalo en esta app y pulsa Conectar.</string>
+    <string name="dialog_ok_understood">Entendido</string>
+
+    <string name="error_with_cause">Error: %1$s\nCausa: %2$s</string>
+    <string name="toast_connection_error">Error de conexion</string>
+    <string name="toast_enter_valid_token">Introduce un token valido</string>
+
+    <string name="main_header_chats">Chats</string>
+    <string name="main_header_reorder">Reordenar</string>
+    <string name="main_unknown_user">Usuario desconocido</string>
+    <string name="main_group_chat">Grupo</string>
+    <string name="main_tap_to_view_messages">Toca para ver mensajes</string>
+    <string name="main_server">Servidor</string>
+    <string name="toast_reorder_chats">Arrastra para reordenar chats</string>
+    <string name="toast_order_saved">Orden guardado</string>
+    <string name="toast_load_chats_failed">No se pudieron cargar chats</string>
+    <string name="toast_fetch_chats_error">Error al cargar chats: %1$s</string>
+
+    <string name="guild_default_name">Servidor</string>
+    <string name="guild_search_hint">Buscar canal...</string>
+    <string name="guild_reorder_title">Reordenar canales</string>
+    <string name="guild_user_fallback">Usuario %1$s</string>
+    <string name="content_desc_search">Buscar</string>
+    <string name="content_desc_reorder">Reordenar</string>
+    <string name="toast_reorder_channels">Arrastra para reordenar canales</string>
+    <string name="toast_fetch_channels_error">Error al cargar canales</string>
+
+    <string name="voice_channel_default">Canal de voz</string>
+    <string name="voice_connected_zero">Conectados: 0</string>
+    <string name="voice_join_channel">Unirse al canal</string>
+    <string name="voice_channel_title_with_name">Voz: %1$s</string>
+    <string name="voice_connected_count">Conectados: %1$d</string>
+    <string name="voice_member_item">Usuario: %1$s</string>
+    <string name="voice_channel_empty">Nadie conectado</string>
+    <string name="voice_join_unavailable">La conexion de voz aun no esta disponible</string>
+
+    <string name="notif_header_title">Notificaciones</string>
+    <string name="notif_clear_all">Limpiar</string>
+    <string name="notif_mute_all">Silenciar notificaciones</string>
+    <string name="notif_empty">No hay notificaciones</string>
+    <string name="toast_notifications_cleared">Notificaciones eliminadas</string>
+    <string name="toast_notifications_enabled">Notificaciones activadas</string>
+    <string name="toast_notifications_disabled">Notificaciones desactivadas</string>
+
+    <string name="message_audio_label">Audio</string>
+    <string name="message_play_audio_desc">Reproducir audio</string>
+    <string name="message_audio_playing">Reproduciendo...</string>
+    <string name="message_audio_error">Error de audio</string>
+    <string name="toast_audio_play_error">Error al reproducir audio</string>
+    <string name="toast_generic_error">Error: %1$s</string>
+
+    <string name="notification_attachment">Archivo adjunto</string>
+    <string name="notification_time_channel">%1$s - %2$s</string>
+
+    <string name="channel_unknown">Canal desconocido</string>
+    <string name="channel_voice_name">Voz: %1$s</string>
+    <string name="channel_voice_count">%1$d conectados</string>
+    <string name="channel_voice_member_line">%1$s</string>
+    <string name="channel_text_name"># %1$s</string>
+
+    <string name="image_download_error">Error al descargar</string>
+    <string name="image_saved">Imagen guardada</string>
+    <string name="image_saved_gallery">Imagen guardada en galeria</string>
+
+    <string name="message_service_channel_name">Servicio Whasap2</string>
+    <string name="message_service_channel_desc">Mantiene la app conectada en segundo plano</string>
+    <string name="message_alerts_channel_name">Mensajes nuevos</string>
+    <string name="message_alerts_channel_desc">Notificaciones de mensajes nuevos</string>
+    <string name="message_foreground_connected">Conectado - Esperando mensajes</string>
+    <string name="message_dm_fallback">DM</string>
+    <string name="message_channel_fallback">canal</string>
+    <string name="message_attachment">Archivo adjunto</string>
 </resources>

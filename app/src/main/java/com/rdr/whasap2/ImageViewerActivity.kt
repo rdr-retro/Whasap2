@@ -60,7 +60,7 @@ class ImageViewerActivity : AppCompatActivity() {
                 override fun onLoadCleared(placeholder: Drawable?) {}
 
                 override fun onLoadFailed(errorDrawable: Drawable?) {
-                    Toast.makeText(this@ImageViewerActivity, "Error al descargar", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ImageViewerActivity, R.string.image_download_error, Toast.LENGTH_SHORT).show()
                 }
             })
     }
@@ -82,7 +82,7 @@ class ImageViewerActivity : AppCompatActivity() {
                     contentResolver.openOutputStream(uri)?.use { outputStream ->
                         bitmap.compress(Bitmap.CompressFormat.JPEG, 95, outputStream)
                     }
-                    Toast.makeText(this, "Imagen guardada ✓", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.image_saved, Toast.LENGTH_SHORT).show()
                 }
             } else {
                 // For older devices - save to Pictures directory
@@ -100,11 +100,11 @@ class ImageViewerActivity : AppCompatActivity() {
                 mediaScanIntent.data = android.net.Uri.fromFile(file)
                 sendBroadcast(mediaScanIntent)
 
-                Toast.makeText(this, "Imagen guardada en Galería ✓", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.image_saved_gallery, Toast.LENGTH_SHORT).show()
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.toast_generic_error, e.message ?: "-"), Toast.LENGTH_LONG).show()
         }
     }
 }

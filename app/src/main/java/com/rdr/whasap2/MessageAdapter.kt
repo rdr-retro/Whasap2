@@ -251,10 +251,10 @@ class MessageAdapter(
             // Update icon based on playing state
             if (currentlyPlayingPosition == position) {
                 playBtn.setImageResource(android.R.drawable.ic_media_pause)
-                label.text = "⏹ Reproduciendo..."
+                label.text = container.context.getString(R.string.message_audio_playing)
             } else {
                 playBtn.setImageResource(android.R.drawable.ic_media_play)
-                label.text = "\uD83C\uDFA4 Audio"
+                label.text = container.context.getString(R.string.message_audio_label)
             }
 
             playBtn.setOnClickListener {
@@ -262,7 +262,7 @@ class MessageAdapter(
                     // Stop current playback
                     stopAudio()
                     playBtn.setImageResource(android.R.drawable.ic_media_play)
-                    label.text = "\uD83C\uDFA4 Audio"
+                    label.text = container.context.getString(R.string.message_audio_label)
                 } else {
                     // Stop any existing playback
                     stopAudio()
@@ -286,20 +286,20 @@ class MessageAdapter(
                     start()
                     currentlyPlayingPosition = position
                     playBtn.setImageResource(android.R.drawable.ic_media_pause)
-                    label.text = "⏹ Reproduciendo..."
+                    label.text = playBtn.context.getString(R.string.message_audio_playing)
                 }
                 setOnCompletionListener {
                     currentlyPlayingPosition = -1
                     playBtn.setImageResource(android.R.drawable.ic_media_play)
-                    label.text = "\uD83C\uDFA4 Audio"
+                    label.text = playBtn.context.getString(R.string.message_audio_label)
                     release()
                     currentMediaPlayer = null
                 }
                 setOnErrorListener { _, _, _ ->
                     currentlyPlayingPosition = -1
                     playBtn.setImageResource(android.R.drawable.ic_media_play)
-                    label.text = "\uD83C\uDFA4 Error"
-                    Toast.makeText(playBtn.context, "Error al reproducir audio", Toast.LENGTH_SHORT).show()
+                    label.text = playBtn.context.getString(R.string.message_audio_error)
+                    Toast.makeText(playBtn.context, R.string.toast_audio_play_error, Toast.LENGTH_SHORT).show()
                     release()
                     currentMediaPlayer = null
                     true
@@ -307,7 +307,11 @@ class MessageAdapter(
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            Toast.makeText(playBtn.context, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                playBtn.context,
+                playBtn.context.getString(R.string.toast_generic_error, e.message ?: "-"),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 

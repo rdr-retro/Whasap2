@@ -33,7 +33,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Notificaciones"
+            android:text="@string/notif_header_title"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -43,7 +43,7 @@
             android:id="@+id/btn_clear_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Borrar todo"
+            android:text="@string/notif_clear_all"
             android:textColor="#CCFFFFFF"
             android:textSize="13sp"
             android:background="?attr/selectableItemBackground"
@@ -62,7 +62,7 @@
             android:id="@+id/cb_mute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Silenciar todas las notificaciones"
+            android:text="@string/notif_mute_all"
             android:textColor="#333333"
             android:textSize="14sp" />
     </LinearLayout>
@@ -72,7 +72,7 @@
         android:id="@+id/empty_state"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="No hay notificaciones pendientes"
+        android:text="@string/notif_empty"
         android:textColor="#999999"
         android:textSize="15sp"
         android:gravity="center"

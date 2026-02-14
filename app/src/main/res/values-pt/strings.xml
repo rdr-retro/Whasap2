@@ -1,0 +1,101 @@
+<resources>
+    <string name="app_name">Whasap2</string>
+    <string name="action_settings">Configuracoes</string>
+
+    <string name="intro_welcome_title">BEM-VINDO</string>
+    <string name="intro_app_name">Whasap2</string>
+    <string name="intro_description">Whasap2 conecta sua conta do Discord para ver chats, canais e notificacoes em uma interface estilo mensageria.</string>
+    <string name="intro_language_label">Idioma</string>
+    <string name="intro_continue">Continuar</string>
+
+    <string name="lang_spanish">Espanhol</string>
+    <string name="lang_english">Ingles</string>
+    <string name="lang_french">Frances</string>
+    <string name="lang_german">Alemao</string>
+    <string name="lang_italian">Italiano</string>
+    <string name="lang_portuguese">Portugues</string>
+
+    <string name="welcome_title">Conectar Discord</string>
+    <string name="welcome_subtitle_access">Acesso com token de usuario</string>
+    <string name="welcome_disclaimer">Aviso: este app nao e oficial e voce usa por sua propria responsabilidade. Informe apenas seu token pessoal, nao compartilhe com terceiros e revogue imediatamente se suspeitar de vazamento. O desenvolvedor nao se responsabiliza por perda de dados, acesso nao autorizado, interrupcao de servico ou danos decorrentes do uso deste app ou de mudancas na API do Discord.</string>
+    <string name="welcome_token_label">Token do Discord</string>
+    <string name="welcome_token_hint">Cole seu token aqui</string>
+    <string name="welcome_connect">Conectar</string>
+    <string name="welcome_help">Ajuda</string>
+    <string name="welcome_error_preview">Erro de conexao: -</string>
+    <string name="welcome_version">Versao 1.0</string>
+
+    <string name="dialog_token_help_title">Como obter o token</string>
+    <string name="dialog_token_help_message">1. Abra o Discord no navegador e faca login.\n2. Pressione F12 para abrir as ferramentas de desenvolvedor.\n3. Va para a aba Application ou Storage.\n4. Em Local Storage, abra https://discord.com.\n5. Procure a chave token e copie o valor.\n6. Cole neste app e pressione Conectar.</string>
+    <string name="dialog_ok_understood">Entendi</string>
+
+    <string name="error_with_cause">Erro: %1$s\nCausa: %2$s</string>
+    <string name="toast_connection_error">Erro de conexao</string>
+    <string name="toast_enter_valid_token">Digite um token valido</string>
+
+    <string name="main_header_chats">Chats</string>
+    <string name="main_header_reorder">Reordenar</string>
+    <string name="main_unknown_user">Usuario desconhecido</string>
+    <string name="main_group_chat">Grupo</string>
+    <string name="main_tap_to_view_messages">Toque para ver mensagens</string>
+    <string name="main_server">Servidor</string>
+    <string name="toast_reorder_chats">Arraste para reordenar chats</string>
+    <string name="toast_order_saved">Ordem salva</string>
+    <string name="toast_load_chats_failed">Nao foi possivel carregar os chats</string>
+    <string name="toast_fetch_chats_error">Erro ao carregar chats: %1$s</string>
+
+    <string name="guild_default_name">Servidor</string>
+    <string name="guild_search_hint">Buscar canal...</string>
+    <string name="guild_reorder_title">Reordenar canais</string>
+    <string name="guild_user_fallback">Usuario %1$s</string>
+    <string name="content_desc_search">Buscar</string>
+    <string name="content_desc_reorder">Reordenar</string>
+    <string name="toast_reorder_channels">Arraste para reordenar canais</string>
+    <string name="toast_fetch_channels_error">Erro ao carregar canais</string>
+
+    <string name="voice_channel_default">Canal de voz</string>
+    <string name="voice_connected_zero">Conectados: 0</string>
+    <string name="voice_join_channel">Entrar no canal</string>
+    <string name="voice_channel_title_with_name">Voz: %1$s</string>
+    <string name="voice_connected_count">Conectados: %1$d</string>
+    <string name="voice_member_item">Usuario: %1$s</string>
+    <string name="voice_channel_empty">Ninguem conectado</string>
+    <string name="voice_join_unavailable">A conexao de voz ainda nao esta disponivel</string>
+
+    <string name="notif_header_title">Notificacoes</string>
+    <string name="notif_clear_all">Limpar</string>
+    <string name="notif_mute_all">Silenciar notificacoes</string>
+    <string name="notif_empty">Sem notificacoes</string>
+    <string name="toast_notifications_cleared">Notificacoes limpas</string>
+    <string name="toast_notifications_enabled">Notificacoes ativadas</string>
+    <string name="toast_notifications_disabled">Notificacoes desativadas</string>
+
+    <string name="message_audio_label">Audio</string>
+    <string name="message_play_audio_desc">Reproduzir audio</string>
+    <string name="message_audio_playing">Reproduzindo...</string>
+    <string name="message_audio_error">Erro de audio</string>
+    <string name="toast_audio_play_error">Erro ao reproduzir audio</string>
+    <string name="toast_generic_error">Erro: %1$s</string>
+
+    <string name="notification_attachment">Anexo</string>
+    <string name="notification_time_channel">%1$s - %2$s</string>
+
+    <string name="channel_unknown">Canal desconhecido</string>
+    <string name="channel_voice_name">Voz: %1$s</string>
+    <string name="channel_voice_count">%1$d conectados</string>
+    <string name="channel_voice_member_line">%1$s</string>
+    <string name="channel_text_name"># %1$s</string>
+
+    <string name="image_download_error">Erro ao baixar</string>
+    <string name="image_saved">Imagem salva</string>
+    <string name="image_saved_gallery">Imagem salva na galeria</string>
+
+    <string name="message_service_channel_name">Servico Whasap2</string>
+    <string name="message_service_channel_desc">Mantem o app conectado em segundo plano</string>
+    <string name="message_alerts_channel_name">Novas mensagens</string>
+    <string name="message_alerts_channel_desc">Notificacoes de novas mensagens</string>
+    <string name="message_foreground_connected">Conectado - Aguardando mensagens</string>
+    <string name="message_dm_fallback">DM</string>
+    <string name="message_channel_fallback">canal</string>
+    <string name="message_attachment">Anexo</string>
+</resources>

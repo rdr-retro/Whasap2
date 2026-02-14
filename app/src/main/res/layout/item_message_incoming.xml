@@ -51,7 +51,7 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:background="?attr/selectableItemBackground"
-                android:contentDescription="Play"
+                android:contentDescription="@string/message_play_audio_desc"
                 android:src="@android:drawable/ic_media_play" />
 
             <TextView
@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="🎤 Audio"
+                android:text="@string/message_audio_label"
                 android:textColor="@android:color/black"
                 android:textSize="14sp" />
         </LinearLayout>

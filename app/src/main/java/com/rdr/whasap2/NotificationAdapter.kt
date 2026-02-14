@@ -37,9 +37,10 @@ class NotificationAdapter(
 
     override fun onBindViewHolder(holder: NotifViewHolder, position: Int) {
         val item = notifications[position]
+        val context = holder.itemView.context
         holder.sender.text = item.sender
-        holder.content.text = if (item.content.isNotEmpty()) item.content else "\uD83D\uDCCE Archivo"
-        holder.time.text = "${item.time} · ${item.channelName}"
+        holder.content.text = if (item.content.isNotEmpty()) item.content else context.getString(R.string.notification_attachment)
+        holder.time.text = context.getString(R.string.notification_time_channel, item.time, item.channelName)
 
         // Mute checkbox (star)
         holder.muteCheck.setOnCheckedChangeListener(null) // clear old listener

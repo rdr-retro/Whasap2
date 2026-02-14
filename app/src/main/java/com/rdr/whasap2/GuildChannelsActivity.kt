@@ -29,7 +29,7 @@ class GuildChannelsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_guild_channels)
 
         guildId = intent.getStringExtra("GUILD_ID")
-        val guildName = intent.getStringExtra("GUILD_NAME") ?: "Server"
+        val guildName = intent.getStringExtra("GUILD_NAME") ?: getString(R.string.main_server)
 
         findViewById<TextView>(R.id.guild_name).text = guildName
         findViewById<View>(R.id.btn_back).setOnClickListener { finish() }
@@ -122,15 +122,15 @@ class GuildChannelsActivity : AppCompatActivity() {
             }
 
             if (isReorderMode) {
-                guildNameView.text = "Reordenar"
-                Toast.makeText(this, "Arrastra los canales para reordenar", Toast.LENGTH_SHORT).show()
+                guildNameView.text = getString(R.string.guild_reorder_title)
+                Toast.makeText(this, R.string.toast_reorder_channels, Toast.LENGTH_SHORT).show()
             } else {
-                guildNameView.text = intent.getStringExtra("GUILD_NAME") ?: "Server"
+                guildNameView.text = intent.getStringExtra("GUILD_NAME") ?: getString(R.string.main_server)
                 // Save the new order
                 if (::adapter.isInitialized) {
                     saveChannelOrder(adapter.getChannels())
                 }
-                Toast.makeText(this, "Orden guardado ✓", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.toast_order_saved, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -182,7 +182,7 @@ class GuildChannelsActivity : AppCompatActivity() {
                         val names = states.map { state ->
                             state.member?.nick
                                 ?: state.member?.user?.username
-                                ?: "User ${state.user_id.takeLast(4)}"
+                                ?: getString(R.string.guild_user_fallback, state.user_id.takeLast(4))
                         }
                         voiceMembers[channelId] = names
                     }
@@ -220,7 +220,7 @@ class GuildChannelsActivity : AppCompatActivity() {
 
             } catch (e: Exception) {
                 e.printStackTrace()
-                Toast.makeText(this@GuildChannelsActivity, "Error fetching channels", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@GuildChannelsActivity, R.string.toast_fetch_channels_error, Toast.LENGTH_SHORT).show()
             }
         }
     }

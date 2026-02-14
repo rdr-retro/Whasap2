@@ -52,10 +52,10 @@ class MessagePollingService : Service() {
             // Service foreground channel (silent)
             val serviceChannel = NotificationChannel(
                 FOREGROUND_CHANNEL_ID,
-                "Servicio Whasap2",
+                getString(R.string.message_service_channel_name),
                 NotificationManager.IMPORTANCE_LOW
             ).apply {
-                description = "Mantiene la app conectada en segundo plano"
+                description = getString(R.string.message_service_channel_desc)
                 setSound(null, null)
             }
             notifManager.createNotificationChannel(serviceChannel)
@@ -63,10 +63,10 @@ class MessagePollingService : Service() {
             // Message notification channel (with sound)
             val msgChannel = NotificationChannel(
                 CHANNEL_ID,
-                "Mensajes nuevos",
+                getString(R.string.message_alerts_channel_name),
                 NotificationManager.IMPORTANCE_HIGH
             ).apply {
-                description = "Notificaciones de mensajes nuevos"
+                description = getString(R.string.message_alerts_channel_desc)
                 enableVibration(true)
                 enableLights(true)
             }
@@ -117,8 +117,8 @@ class MessagePollingService : Service() {
 
         val notification = if (Build.VERSION.SDK_INT >= 26) {
             Notification.Builder(this, FOREGROUND_CHANNEL_ID)
-                .setContentTitle("Whasap2")
-                .setContentText("Conectado · Esperando mensajes")
+                .setContentTitle(getString(R.string.app_name))
+                .setContentText(getString(R.string.message_foreground_connected))
                 .setSmallIcon(android.R.drawable.ic_dialog_email)
                 .setContentIntent(pendingIntent)
                 .setOngoing(true)
@@ -126,8 +126,8 @@ class MessagePollingService : Service() {
         } else {
             @Suppress("DEPRECATION")
             Notification.Builder(this)
-                .setContentTitle("Whasap2")
-                .setContentText("Conectado · Esperando mensajes")
+                .setContentTitle(getString(R.string.app_name))
+                .setContentText(getString(R.string.message_foreground_connected))
                 .setSmallIcon(android.R.drawable.ic_dialog_email)
                 .setContentIntent(pendingIntent)
                 .setOngoing(true)
@@ -177,7 +177,9 @@ class MessagePollingService : Service() {
                                 continue
                             }
                             if (current.isNotEmpty() && lastKnown.isNotEmpty() && current != lastKnown) {
-                                val name = ch.recipients?.firstOrNull()?.username ?: ch.name ?: "DM"
+                                val name = ch.recipients?.firstOrNull()?.username
+                                    ?: ch.name
+                                    ?: getString(R.string.message_dm_fallback)
                                 changedChannels.add(ch.id to name)
                             }
                             // Save current last_message_id if first time
@@ -216,7 +218,9 @@ class MessagePollingService : Service() {
                                             continue
                                         }
                                         if (current.isNotEmpty() && lastKnown.isNotEmpty() && current != lastKnown) {
-                                            changedChannels.add(ch.id to (ch.name ?: "canal"))
+                                            changedChannels.add(
+                                                ch.id to (ch.name ?: getString(R.string.message_channel_fallback))
+                                            )
                                         }
                                         if (lastKnown.isEmpty() && current.isNotEmpty()) {
                                             prefs.edit().putString("last_msg_${ch.id}", current).apply()
@@ -291,7 +295,7 @@ class MessagePollingService : Service() {
         )
 
         val soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-        val displayContent = if (content.isNotEmpty()) content else "\uD83D\uDCCE Archivo adjunto"
+        val displayContent = if (content.isNotEmpty()) content else getString(R.string.message_attachment)
 
         val notification = if (Build.VERSION.SDK_INT >= 26) {
             Notification.Builder(this, CHANNEL_ID)

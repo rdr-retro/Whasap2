@@ -28,7 +28,7 @@ class WelcomeActivity : AppCompatActivity() {
         val inputToken = findViewById<EditText>(R.id.input_token)
         val btnConnect = findViewById<Button>(R.id.btn_connect)
         val btnHelp = findViewById<Button>(R.id.btn_help)
-        val prefs = getSharedPreferences("whasap_prefs", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences(NotificationSettings.PREFS_NAME, Context.MODE_PRIVATE)
 
         btnConnect.setOnClickListener {
             val token = inputToken.text.toString().trim()
@@ -48,12 +48,13 @@ class WelcomeActivity : AppCompatActivity() {
                          e.printStackTrace()
                          val errorText = findViewById<android.widget.TextView>(R.id.text_error_log)
                          errorText.visibility = android.view.View.VISIBLE
-                         errorText.text = "Error: ${e.message}\nCausa: ${e.cause?.message}"
-                         Toast.makeText(this@WelcomeActivity, "Error de conexión", Toast.LENGTH_SHORT).show()
+                         val causeMessage = e.cause?.message ?: "-"
+                         errorText.text = getString(R.string.error_with_cause, e.message ?: "-", causeMessage)
+                         Toast.makeText(this@WelcomeActivity, R.string.toast_connection_error, Toast.LENGTH_SHORT).show()
                      }
                 }
             } else {
-                Toast.makeText(this, "Introduce un token válido", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.toast_enter_valid_token, Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -75,31 +76,20 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun checkTokenAndNavigate() {
-        val prefs = getSharedPreferences("whasap_prefs", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences(NotificationSettings.PREFS_NAME, Context.MODE_PRIVATE)
         val savedToken = prefs.getString("DISCORD_TOKEN", null)
 
-        if (savedToken != null) {
+        if (!savedToken.isNullOrBlank()) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
     }
 
     private fun showTokenHelpDialog() {
-        val steps = """
-            1. Abre Discord en el navegador (https://discord.com/app) e inicia sesión.
-            2. Pulsa F12 para abrir Herramientas de desarrollo.
-            3. Ve a la pestaña Network y recarga la página.
-            4. Busca una petición a /api/v10/users/@me (o /api/v9/users/@me).
-            5. En Headers, copia el valor de Authorization.
-            6. Pégalo aquí en el campo Token y pulsa Conectar.
-
-            Usa solo tu propia cuenta y no compartas tu token con nadie.
-        """.trimIndent()
-
         AlertDialog.Builder(this)
-            .setTitle("Cómo obtener tu token")
-            .setMessage(steps)
-            .setPositiveButton("Entendido", null)
+            .setTitle(R.string.dialog_token_help_title)
+            .setMessage(getString(R.string.dialog_token_help_message))
+            .setPositiveButton(R.string.dialog_ok_understood, null)
             .show()
     }
 }

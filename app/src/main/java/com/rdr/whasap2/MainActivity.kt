@@ -25,7 +25,12 @@ class MainActivity : AppCompatActivity() {
         // Check if token exists
         val prefs = getSharedPreferences(NotificationSettings.PREFS_NAME, android.content.Context.MODE_PRIVATE)
         if (!prefs.contains("DISCORD_TOKEN")) {
-            startActivity(android.content.Intent(this, IntroActivity::class.java))
+            val next = if (prefs.getBoolean(NotificationSettings.KEY_INTRO_SEEN, false)) {
+                WelcomeActivity::class.java
+            } else {
+                IntroActivity::class.java
+            }
+            startActivity(android.content.Intent(this, next))
             finish()
             return
         }
@@ -130,13 +135,13 @@ class MainActivity : AppCompatActivity() {
             adapter.isReorderMode = isReorderMode
 
             if (isReorderMode) {
-                binding.headerTitle.text = "Reordenar"
-                Toast.makeText(this, "Arrastra los chats para reordenar", Toast.LENGTH_SHORT).show()
+                binding.headerTitle.text = getString(R.string.main_header_reorder)
+                Toast.makeText(this, R.string.toast_reorder_chats, Toast.LENGTH_SHORT).show()
             } else {
-                binding.headerTitle.text = "Chats"
+                binding.headerTitle.text = getString(R.string.main_header_chats)
                 // Save the new order
                 saveChatOrder(adapter.getChats())
-                Toast.makeText(this, "Orden guardado ✓", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.toast_order_saved, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -182,7 +187,7 @@ class MainActivity : AppCompatActivity() {
             val guildId = guild.id ?: return@forEach
             val obj = JSONObject().apply {
                 put("id", guildId)
-                put("name", guild.name ?: "Server")
+                put("name", guild.name ?: getString(R.string.main_server))
                 put("icon", guild.icon)
             }
             arr.put(obj)
@@ -203,7 +208,7 @@ class MainActivity : AppCompatActivity() {
                     add(
                         DiscordGuild(
                             id = guildId,
-                            name = obj.optString("name", "Server"),
+                            name = obj.optString("name", getString(R.string.main_server)),
                             icon = obj.optString("icon", null)
                         )
                     )
@@ -248,9 +253,9 @@ class MainActivity : AppCompatActivity() {
                 val dmChats = channels.filter { it.type == 1 || it.type == 3 }.map { channel ->
                     val recipient = channel.recipients?.firstOrNull()
                     val name = if (channel.type == 1) {
-                        recipient?.username ?: "Unknown User"
+                        recipient?.username ?: getString(R.string.main_unknown_user)
                     } else {
-                        channel.recipients?.joinToString(", ") { it.username } ?: "Group Chat"
+                        channel.recipients?.joinToString(", ") { it.username } ?: getString(R.string.main_group_chat)
                     }
 
                     val imageUrl = if (channel.type == 1 && recipient?.avatar != null) {
@@ -262,7 +267,7 @@ class MainActivity : AppCompatActivity() {
                     Chat(
                         id = channel.id,
                         name = name,
-                        message = "Tap to view messages",
+                        message = getString(R.string.main_tap_to_view_messages),
                         time = "",
                         unreadCount = 0,
                         isGuild = false,
@@ -273,13 +278,13 @@ class MainActivity : AppCompatActivity() {
                 // Map Guilds
                 val guildChats = guilds.mapNotNull { guild ->
                     val guildId = guild.id?.takeIf { it.isNotBlank() } ?: return@mapNotNull null
-                    val guildName = guild.name?.takeIf { it.isNotBlank() } ?: "Server"
+                    val guildName = guild.name?.takeIf { it.isNotBlank() } ?: getString(R.string.main_server)
                     val imageUrl = guild.icon?.let { "https://cdn.discordapp.com/icons/$guildId/$it.png" }
 
                     Chat(
                         id = guildId,
                         name = guildName,
-                        message = "Server",
+                        message = getString(R.string.main_server),
                         time = "",
                         unreadCount = 0,
                         isGuild = true,
@@ -297,13 +302,17 @@ class MainActivity : AppCompatActivity() {
                 if (allChats.isEmpty()) {
                     Toast.makeText(
                         this@MainActivity,
-                        "No se pudieron cargar chats/servidores. Revisa token o conexión.",
+                        R.string.toast_load_chats_failed,
                         Toast.LENGTH_LONG
                     ).show()
                 }
 
             } catch (e: Exception) {
-                Toast.makeText(this@MainActivity, "Error fetching chats: ${e.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    this@MainActivity,
+                    getString(R.string.toast_fetch_chats_error, e.message ?: "-"),
+                    Toast.LENGTH_LONG
+                ).show()
                 e.printStackTrace()
             }
         }

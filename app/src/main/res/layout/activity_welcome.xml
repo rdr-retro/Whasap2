@@ -29,7 +29,7 @@
                 android:shadowDx="0"
                 android:shadowDy="1"
                 android:shadowRadius="0.8"
-                android:text="Whasap 2"
+                android:text="@string/welcome_title"
                 android:textColor="#1E252D"
                 android:textSize="27sp"
                 android:textStyle="bold" />
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="14dp"
                 android:gravity="center"
-                android:text="Acceso seguro clásico"
+                android:text="@string/welcome_subtitle_access"
                 android:textColor="#3C4653"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:lineSpacingExtra="2dp"
-                android:text="Aviso y descargo de responsabilidad:\n\nEsta app no está afiliada, asociada ni respaldada por Discord.\n\nTu token se almacena localmente en este dispositivo para poder acceder a tus chats desde la aplicación. Aunque no se envía intencionalmente a terceros fuera de la conexión con Discord, debes protegerlo como si fuera una contraseña.\n\nEl uso de esta app es bajo tu exclusiva responsabilidad. El uso indebido del token puede implicar riesgos de seguridad o pérdida de acceso a tu cuenta. Los desarrolladores no se hacen responsables por pérdida de datos, daños directos o indirectos derivados del uso de la app."
+                android:text="@string/welcome_disclaimer"
                 android:textColor="#2E3946"
                 android:textSize="13sp" />
 
@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
-                android:text="Token de Discord"
+                android:text="@string/welcome_token_label"
                 android:textColor="#1E252D"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="14dp"
                 android:background="@drawable/welcome_input_skeuo"
-                android:hint="Pega aquí tu token de Discord"
+                android:hint="@string/welcome_token_hint"
                 android:inputType="textPassword"
                 android:padding="12dp"
                 android:textColor="#111111"
@@ -93,7 +93,7 @@
                 android:shadowDx="0"
                 android:shadowDy="1"
                 android:shadowRadius="0.7"
-                android:text="Conectar"
+                android:text="@string/welcome_connect"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
@@ -114,7 +114,7 @@
                 android:paddingTop="5dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="5dp"
-                android:text="Ayuda"
+                android:text="@string/welcome_help"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="12sp"
@@ -128,7 +128,7 @@
                 android:textColor="#B10000"
                 android:textSize="12sp"
                 android:visibility="gone"
-                tools:text="Error: conexión fallida" />
+                tools:text="@string/welcome_error_preview" />
 
         </LinearLayout>
 
@@ -137,7 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:gravity="center"
-            android:text="Versión 1.0"
+            android:text="@string/welcome_version"
             android:textColor="#A8B0BB"
             android:textSize="12sp" />
 

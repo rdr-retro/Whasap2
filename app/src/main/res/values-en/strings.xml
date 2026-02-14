@@ -1,0 +1,101 @@
+<resources>
+    <string name="app_name">Whasap2</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="intro_welcome_title">WELCOME</string>
+    <string name="intro_app_name">Whasap2</string>
+    <string name="intro_description">Whasap2 connects your Discord account so you can view chats, channels, and notifications in a messaging-style interface.</string>
+    <string name="intro_language_label">Language</string>
+    <string name="intro_continue">Continue</string>
+
+    <string name="lang_spanish">Spanish</string>
+    <string name="lang_english">English</string>
+    <string name="lang_french">French</string>
+    <string name="lang_german">German</string>
+    <string name="lang_italian">Italian</string>
+    <string name="lang_portuguese">Portuguese</string>
+
+    <string name="welcome_title">Connect Discord</string>
+    <string name="welcome_subtitle_access">Access with user token</string>
+    <string name="welcome_disclaimer">Disclaimer: this app is unofficial and you use it at your own risk. Enter only your personal token, never share it with third parties, and revoke it immediately if you suspect exposure. The developer is not responsible for data loss, unauthorized access, service interruptions, or any damage derived from using this app or from Discord API changes.</string>
+    <string name="welcome_token_label">Discord token</string>
+    <string name="welcome_token_hint">Paste your token here</string>
+    <string name="welcome_connect">Connect</string>
+    <string name="welcome_help">Help</string>
+    <string name="welcome_error_preview">Connection error: -</string>
+    <string name="welcome_version">Version 1.0</string>
+
+    <string name="dialog_token_help_title">How to get your token</string>
+    <string name="dialog_token_help_message">1. Open Discord in your browser and sign in.\n2. Press F12 to open developer tools.\n3. Go to Application or Storage tab.\n4. In Local Storage, open https://discord.com.\n5. Find the token key and copy its value.\n6. Paste it into this app and press Connect.</string>
+    <string name="dialog_ok_understood">Understood</string>
+
+    <string name="error_with_cause">Error: %1$s\nCause: %2$s</string>
+    <string name="toast_connection_error">Connection error</string>
+    <string name="toast_enter_valid_token">Enter a valid token</string>
+
+    <string name="main_header_chats">Chats</string>
+    <string name="main_header_reorder">Reorder</string>
+    <string name="main_unknown_user">Unknown user</string>
+    <string name="main_group_chat">Group</string>
+    <string name="main_tap_to_view_messages">Tap to view messages</string>
+    <string name="main_server">Server</string>
+    <string name="toast_reorder_chats">Drag to reorder chats</string>
+    <string name="toast_order_saved">Order saved</string>
+    <string name="toast_load_chats_failed">Could not load chats</string>
+    <string name="toast_fetch_chats_error">Error loading chats: %1$s</string>
+
+    <string name="guild_default_name">Server</string>
+    <string name="guild_search_hint">Search channel...</string>
+    <string name="guild_reorder_title">Reorder channels</string>
+    <string name="guild_user_fallback">User %1$s</string>
+    <string name="content_desc_search">Search</string>
+    <string name="content_desc_reorder">Reorder</string>
+    <string name="toast_reorder_channels">Drag to reorder channels</string>
+    <string name="toast_fetch_channels_error">Error loading channels</string>
+
+    <string name="voice_channel_default">Voice channel</string>
+    <string name="voice_connected_zero">Connected: 0</string>
+    <string name="voice_join_channel">Join channel</string>
+    <string name="voice_channel_title_with_name">Voice: %1$s</string>
+    <string name="voice_connected_count">Connected: %1$d</string>
+    <string name="voice_member_item">User: %1$s</string>
+    <string name="voice_channel_empty">Nobody connected</string>
+    <string name="voice_join_unavailable">Voice connection is not available yet</string>
+
+    <string name="notif_header_title">Notifications</string>
+    <string name="notif_clear_all">Clear</string>
+    <string name="notif_mute_all">Mute notifications</string>
+    <string name="notif_empty">No notifications</string>
+    <string name="toast_notifications_cleared">Notifications cleared</string>
+    <string name="toast_notifications_enabled">Notifications enabled</string>
+    <string name="toast_notifications_disabled">Notifications disabled</string>
+
+    <string name="message_audio_label">Audio</string>
+    <string name="message_play_audio_desc">Play audio</string>
+    <string name="message_audio_playing">Playing...</string>
+    <string name="message_audio_error">Audio error</string>
+    <string name="toast_audio_play_error">Error playing audio</string>
+    <string name="toast_generic_error">Error: %1$s</string>
+
+    <string name="notification_attachment">Attachment</string>
+    <string name="notification_time_channel">%1$s - %2$s</string>
+
+    <string name="channel_unknown">Unknown channel</string>
+    <string name="channel_voice_name">Voice: %1$s</string>
+    <string name="channel_voice_count">%1$d connected</string>
+    <string name="channel_voice_member_line">%1$s</string>
+    <string name="channel_text_name"># %1$s</string>
+
+    <string name="image_download_error">Download error</string>
+    <string name="image_saved">Image saved</string>
+    <string name="image_saved_gallery">Image saved to gallery</string>
+
+    <string name="message_service_channel_name">Whasap2 Service</string>
+    <string name="message_service_channel_desc">Keeps the app connected in background</string>
+    <string name="message_alerts_channel_name">New messages</string>
+    <string name="message_alerts_channel_desc">Notifications for new messages</string>
+    <string name="message_foreground_connected">Connected - Waiting for messages</string>
+    <string name="message_dm_fallback">DM</string>
+    <string name="message_channel_fallback">channel</string>
+    <string name="message_attachment">Attachment</string>
+</resources>

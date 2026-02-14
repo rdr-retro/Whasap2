@@ -43,21 +43,24 @@ class ChannelAdapter(
 
     override fun onBindViewHolder(holder: ChannelViewHolder, position: Int) {
         val channel = channels[position]
-        val displayName = channel.name ?: "Unknown Channel"
+        val context = holder.itemView.context
+        val displayName = channel.name ?: context.getString(R.string.channel_unknown)
         val isVoice = channel.type == 2
 
         // Set background based on channel type
         if (isVoice) {
             holder.bg.setBackgroundResource(R.drawable.bg_channel_voice)
             holder.icon.setImageResource(android.R.drawable.ic_lock_silent_mode_off)
-            holder.name.text = "\uD83D\uDD0A $displayName"
+            holder.name.text = context.getString(R.string.channel_voice_name, displayName)
 
             val members = voiceMembers[channel.id]
             if (members != null && members.isNotEmpty()) {
                 holder.voiceCount.visibility = View.VISIBLE
-                holder.voiceCount.text = "${members.size} \uD83D\uDC64"
+                holder.voiceCount.text = context.getString(R.string.channel_voice_count, members.size)
                 holder.voiceMembersContainer.visibility = View.VISIBLE
-                holder.voiceMembersList.text = members.joinToString("\n") { "  \uD83D\uDFE2 $it" }
+                holder.voiceMembersList.text = members.joinToString("\n") {
+                    context.getString(R.string.channel_voice_member_line, it)
+                }
             } else {
                 holder.voiceCount.visibility = View.GONE
                 holder.voiceMembersContainer.visibility = View.GONE
@@ -65,7 +68,7 @@ class ChannelAdapter(
         } else {
             holder.bg.setBackgroundResource(R.drawable.bg_channel_item)
             holder.icon.setImageResource(android.R.drawable.ic_menu_edit)
-            holder.name.text = "# $displayName"
+            holder.name.text = context.getString(R.string.channel_text_name, displayName)
             holder.voiceCount.visibility = View.GONE
             holder.voiceMembersContainer.visibility = View.GONE
         }

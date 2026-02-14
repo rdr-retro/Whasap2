@@ -4,6 +4,8 @@ import android.content.Context
 
 object NotificationSettings {
     const val PREFS_NAME = "whasap_prefs"
+    const val KEY_INTRO_SEEN = "INTRO_SEEN"
+    const val KEY_APP_LANGUAGE = "APP_LANGUAGE"
     const val KEY_NOTIFICATIONS_ENABLED = "NOTIFICATIONS_ENABLED"
     const val KEY_BASELINE_ON_NEXT_START = "BASELINE_ON_NEXT_START"
     private const val LEGACY_KEY_NOTIFICATIONS_MUTED = "NOTIFICATIONS_MUTED"

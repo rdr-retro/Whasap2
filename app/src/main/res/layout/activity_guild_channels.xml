@@ -28,7 +28,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Server Name"
+            android:text="@string/guild_default_name"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -44,7 +44,7 @@
             android:tint="@android:color/white"
             android:layout_marginEnd="12dp"
             android:background="?attr/selectableItemBackground"
-            android:contentDescription="Search" />
+            android:contentDescription="@string/content_desc_search" />
 
         <!-- Edit/Reorder Button -->
         <ImageView
@@ -54,7 +54,7 @@
             android:src="@android:drawable/ic_menu_edit"
             android:tint="@android:color/white"
             android:background="?attr/selectableItemBackground"
-            android:contentDescription="Reorder" />
+            android:contentDescription="@string/content_desc_reorder" />
     </LinearLayout>
 
     <!-- Search Bar (hidden by default) -->
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/white"
-            android:hint="Buscar canal..."
+            android:hint="@string/guild_search_hint"
             android:padding="8dp"
             android:textSize="14sp"
             android:textColor="#333333"

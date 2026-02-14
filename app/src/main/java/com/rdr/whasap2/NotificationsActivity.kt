@@ -58,7 +58,7 @@ class NotificationsActivity : AppCompatActivity() {
         // Clear all button
         findViewById<TextView>(R.id.btn_clear_all).setOnClickListener {
             clearAllNotifications()
-            Toast.makeText(this, "Notificaciones borradas ✓", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.toast_notifications_cleared, Toast.LENGTH_SHORT).show()
         }
 
         // Global mute checkbox
@@ -74,10 +74,10 @@ class NotificationsActivity : AppCompatActivity() {
                 // Avoid burst on re-enable: first cycle only updates checkpoints.
                 NotificationSettings.markBaselineOnNextStart(this)
                 startService(serviceIntent)
-                Toast.makeText(this, "Notificaciones activadas 🔔", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.toast_notifications_enabled, Toast.LENGTH_SHORT).show()
             } else {
                 stopService(serviceIntent)
-                Toast.makeText(this, "Notificaciones desactivadas 🔕", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.toast_notifications_disabled, Toast.LENGTH_SHORT).show()
             }
         }
 

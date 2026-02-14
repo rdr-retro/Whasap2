@@ -14,12 +14,12 @@ class VoiceChannelActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_voice_channel)
 
-        val channelName = intent.getStringExtra("CHANNEL_NAME") ?: "Canal de voz"
+        val channelName = intent.getStringExtra("CHANNEL_NAME") ?: getString(R.string.voice_channel_default)
         val channelId = intent.getStringExtra("CHANNEL_ID") ?: ""
         val guildId = intent.getStringExtra("GUILD_ID") ?: ""
         val membersString = intent.getStringExtra("MEMBERS") ?: ""
 
-        findViewById<TextView>(R.id.voice_channel_name).text = "\uD83D\uDD0A $channelName"
+        findViewById<TextView>(R.id.voice_channel_name).text = getString(R.string.voice_channel_title_with_name, channelName)
         findViewById<ImageView>(R.id.btn_back_voice).setOnClickListener { finish() }
 
         // Display connected members
@@ -27,11 +27,11 @@ class VoiceChannelActivity : AppCompatActivity() {
         val members = if (membersString.isNotEmpty()) membersString.split("||") else emptyList()
 
         if (members.isNotEmpty()) {
-            findViewById<TextView>(R.id.connected_count).text = "${members.size} conectados"
+            findViewById<TextView>(R.id.connected_count).text = getString(R.string.voice_connected_count, members.size)
 
             for (member in members) {
                 val tv = TextView(this).apply {
-                    text = "  \uD83D\uDFE2 $member"
+                    text = getString(R.string.voice_member_item, member)
                     textSize = 16f
                     setTextColor(0xFF333333.toInt())
                     setPadding(16, 12, 16, 12)
@@ -39,7 +39,7 @@ class VoiceChannelActivity : AppCompatActivity() {
                 membersContainer.addView(tv)
             }
         } else {
-            findViewById<TextView>(R.id.connected_count).text = "Canal vacío"
+            findViewById<TextView>(R.id.connected_count).text = getString(R.string.voice_channel_empty)
         }
 
         // Join button
@@ -53,7 +53,7 @@ class VoiceChannelActivity : AppCompatActivity() {
         // For now, show a message about the limitation
         Toast.makeText(
             this,
-            "La conexión a voz requiere Discord Gateway WebSocket.\nEsta función está en desarrollo.",
+            getString(R.string.voice_join_unavailable),
             Toast.LENGTH_LONG
         ).show()
     }

@@ -30,7 +30,7 @@
             android:id="@+id/header_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chats"
+            android:text="@string/main_header_chats"
             android:textColor="@color/white"
             android:textSize="@dimen/header_title_size"
             android:textStyle="bold"
